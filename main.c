@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 	instruction_t instrction;
 	instruction_t arr[] = {
 		{"push", push}, {"pall", pall},
-		{"pint", pint}, {NULL, NULL}
+		{"pint", pint}, {"pop", pop},
+		{NULL, NULL}
 	};
 	if (argc != 2)
 	{
