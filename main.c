@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 			line_number++;
 			opcode = strtok(line, "\n\t ");
 			instrction.opcode = opcode;
+			instrction.f = NULL;
 			i = 0;
 			while (arr[i].f != NULL)
 			{
