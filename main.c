@@ -28,6 +28,11 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	file_open = fopen(argv[1], "r");
+	if (file_open == NULL)
+	{
+		fprintf(stdout, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (getline(&line, &size, file_open) != -1)
 		{
 			line_number++;
