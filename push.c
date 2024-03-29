@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new;
 	char *str_element = strtok(NULL, "\n \t");
 	int element;
-    UNUSED (line_number);
+	UNUSED (line_number);
 
 	element = atoi(str_element);
 	new = malloc(sizeof(stack_t));
@@ -22,7 +22,7 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new->prev = NULL;
-    new->n = element;
+	new->n = element;
 	new->next = NULL;
 	if ((*stack) == NULL)
 		*stack = new;
