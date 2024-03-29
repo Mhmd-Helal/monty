@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdio.h>
 /*
  * main - main function
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	char *opcode;
 	instruction_t instrction;
 	instruction_t arr[] = {
-		{"push", push}, {"pall", push},
+		{"push", push}, {"pall", pall},
 		{NULL, NULL}
 	};
 	if (argc != 2)
@@ -41,14 +41,14 @@ int main(int argc, char **argv)
 					instrction.f = arr[i].f;
 				}
 				i++;
-			}/*
+			}
 			if (!(instrction.opcode) || instrction.opcode[0] == '#')
 			{
 				if (line)
 					free(line);
 				line = NULL;
 				continue;
-			}*/
+			}
 			if (instrction.f)
 				instrction.f(&stack, line_number);
 			else
@@ -62,8 +62,7 @@ int main(int argc, char **argv)
 				fclose(file_open);
 				exit(EXIT_FAILURE);
 			}
-			if (line)
-				free(line);
+			
 
 		}
 		if (line)

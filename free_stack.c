@@ -1,8 +1,8 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  * free_stack - frees a stack_t list.
- * @stack: a pointer to the head
+ * @stack: a pointer to the top
  *
  * Return: void
  */
@@ -12,13 +12,11 @@ void free_stack(stack_t *stack)
 
 	if (!stack)
 		return;
-
 	tmp = stack;
 	while (tmp)
 	{
-		stack = tmp;
 		tmp = stack->next;
 		free(stack);
+		stack = tmp;
 	}
 }
-
