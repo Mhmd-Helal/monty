@@ -38,4 +38,7 @@ typedef struct instruction_s
 } instruction_t;
 void push(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
+void pall(stack_t **stack, unsigned int line_number);
+/*size_t getline(char **lineptr, size_t *n, FILE *stream);*/
 #endif
+

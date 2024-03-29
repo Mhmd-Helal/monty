@@ -14,21 +14,21 @@ int main(int argc, char **argv)
 	stack_t *stack = NULL;
 	unsigned int line_number = 0;
 	char *line = NULL;
-	int size = 0;
+	size_t size = 0;
 	int i = 0;
 	char *opcode;
 	instruction_t instrction;
-	instruction_t arr[] ={
-		{"push", push},{NULL, NULL}
+	instruction_t arr[] = {
+		{"push", push}, {"pall", push},
+		{NULL, NULL}
 	};
-
 	if (argc != 2)
 	{
 		fprintf(stdout, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	file_open = fopen(argv[1],"r");
-	   while (getline(&line, &size, file_open) != -1)
+	file_open = fopen(argv[1], "r");
+	while (getline(&line, &size, file_open) != -1)
 		{
 			line_number++;
 			opcode = strtok(line, "\n\t ");
@@ -41,15 +41,15 @@ int main(int argc, char **argv)
 					instrction.f = arr[i].f;
 				}
 				i++;
-			}
+			}/*
 			if (!(instrction.opcode) || instrction.opcode[0] == '#')
 			{
 				if (line)
 					free(line);
 				line = NULL;
 				continue;
-			}
-			if(instrction.f)
+			}*/
+			if (instrction.f)
 				instrction.f(&stack, line_number);
 			else
 			{
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 				line_number, instrction.opcode);
 				if (line)
 					free(line);
-				if(stack)
+				if (stack)
 					free_stack(stack);
 				fclose(file_open);
 				exit(EXIT_FAILURE);
